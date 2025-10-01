@@ -8,19 +8,21 @@ from cinema.views import (MovieViewSet,
                           ActorDetail,
                           CinemaHallViewSet)
 
+cinema_halls_list = CinemaHallViewSet.as_view(
+    actions={
+        "get": "list",
+        "post": "create"
+    }
+)
 
-cinema_halls_list = CinemaHallViewSet.as_view(actions={
-           "get": "list",
-           "post": "create",
-       })
-
-cinema_halls_detail = CinemaHallViewSet.as_view(actions={
-           "get": "retrieve",
-           "put": "update",
-           "patch": "partial_update",
-           "delete": "destroy",
-})
-
+cinema_halls_detail = CinemaHallViewSet.as_view(
+    actions={
+        "get": "retrieve",
+        "put": "update",
+        "patch": "partial_update",
+        "delete": "destroy"
+    }
+)
 
 router = routers.DefaultRouter()
 router.register("movies", MovieViewSet)
