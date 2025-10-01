@@ -1,4 +1,3 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
@@ -33,8 +32,8 @@ class Movie(models.Model):
 
 class CinemaHall(models.Model):
     name = models.CharField(max_length=255)
-    rows = models.IntegerField()
-    seats_in_row = models.IntegerField()
+    rows = models.PositiveIntegerField()
+    seats_in_row = models.PositiveIntegerField()
 
     @property
     def capacity(self) -> int:
